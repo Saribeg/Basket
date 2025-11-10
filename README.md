@@ -18,6 +18,20 @@ B01, B01, R01, R01, R01 -> $98.27
 
 A simple TypeScript implementation of Acme Widget Co’s basket system from the coding test, demonstrating clean architecture, DI, and extensible discount rules.
 
+## Folder Structure
+
+```
+src/
+├── dbmock/               # Mock data: products, delivery rules, offers
+├── models/               # Domain models (Product, Promotion, DeliveryRule, BasketContext)
+├── services/
+│   ├── basket/           # Basket logic
+│   ├── delivery/         # Delivery rule service
+│   ├── product/          # Product lookup service
+│   └── promotion/        # Promotions system (rules, factory, service)
+└── utils/                # Helper functions (e.g. rounding)
+```
+
 ## Design Highlights
 
 ### Promotions System
