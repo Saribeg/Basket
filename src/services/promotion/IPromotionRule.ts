@@ -1,7 +1,7 @@
 import type { BasketContext } from '../../models/BasketContext.js';
-import type { Promotion, PromotionParamsMap } from '../../models/Promotion.ts';
+import type { Promotion, PromotionParamsMap } from '../../models/Promotion.js';
 
-export interface IPromotionStrategy<T extends keyof PromotionParamsMap = keyof PromotionParamsMap> {
+export interface IPromotionRule<T extends keyof PromotionParamsMap = keyof PromotionParamsMap> {
   readonly promotion: Promotion<T>;
 
   apply(total: number, context: BasketContext): number;

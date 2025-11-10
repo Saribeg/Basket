@@ -1,11 +1,11 @@
 import type { Promotion, PromotionParamsMap } from '../../models/Promotion.js';
-import type { IPromotionStrategy } from './IPromotionStrategy.js';
-import { BuyOneGetSecondHalf } from './strategies/BuyOneGetSecondHalf.js';
-import { FixedDiscount } from './strategies/FixedDiscount.js';
-import { PercentageDiscount } from './strategies/PercentageDiscount.js';
+import type { IPromotionRule } from './IPromotionRule.js';
+import { BuyOneGetSecondHalf } from './rules/BuyOneGetSecondHalf.js';
+import { FixedDiscount } from './rules/FixedDiscount.js';
+import { PercentageDiscount } from './rules/PercentageDiscount.js';
 
-export class PromotionStrategyFactory {
-  static create(promotion: Promotion<keyof PromotionParamsMap>): IPromotionStrategy {
+export class PromotionRuleFactory {
+  static create(promotion: Promotion<keyof PromotionParamsMap>): IPromotionRule {
     switch (promotion.type) {
       case 'buy_one_get_second_half':
         return new BuyOneGetSecondHalf(promotion as Promotion<'buy_one_get_second_half'>);

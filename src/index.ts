@@ -7,7 +7,7 @@ import { Promotion } from './models/Promotion.js';
 import { ProductService } from './services/product/ProductService.js';
 import { DeliveryService } from './services/delivery/DeliveryService.js';
 import { PromotionService } from './services/promotion/PromotionService.js';
-import { PromotionStrategyFactory } from './services/promotion/PromotionStrategyFactory.js';
+import { PromotionRuleFactory } from './services/promotion/PromotionRuleFactory.js';
 import { Basket } from './services/basket/Basket.js';
 
 const productService = new ProductService();
@@ -17,8 +17,8 @@ const deliveryService = new DeliveryService(
 );
 
 const promotionModels = offers.map((o) => new Promotion(o.name, o.description, o.type, o.params));
-const promotionStrategies = promotionModels.map((promo) => PromotionStrategyFactory.create(promo));
-const promotionService = new PromotionService(promotionStrategies);
+const promotionRules = promotionModels.map((promo) => PromotionRuleFactory.create(promo));
+const promotionService = new PromotionService(promotionRules);
 
 function testBasket(codes: string[]): void {
   const basket = new Basket(productService, deliveryService, promotionService);

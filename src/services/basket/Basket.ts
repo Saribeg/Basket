@@ -1,7 +1,7 @@
-import type { Product } from '../../models/Product.ts';
-import type { DeliveryService } from '../delivery/DeliveryService.ts';
-import type { ProductService } from '../product/ProductService.ts';
-import type { PromotionService } from '../promotion/PromotionService.ts';
+import type { Product } from '../../models/Product.js';
+import type { DeliveryService } from '../delivery/DeliveryService.js';
+import type { ProductService } from '../product/ProductService.js';
+import type { PromotionService } from '../promotion/PromotionService.js';
 import type { BasketContext } from '../../models/BasketContext.js';
 import { round } from '../../utils/money.js';
 

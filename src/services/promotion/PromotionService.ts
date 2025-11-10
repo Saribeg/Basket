@@ -1,20 +1,20 @@
-import type { IPromotionStrategy } from './IPromotionStrategy.js';
+import type { IPromotionRule } from './IPromotionRule.js';
 import type { BasketContext } from '../../models/BasketContext.js';
 
 export class PromotionService {
-  constructor(private readonly strategies: IPromotionStrategy[]) {}
+  constructor(private readonly rules: IPromotionRule[]) {}
 
-  getApplicablePromotions(context: BasketContext): IPromotionStrategy[] {
-    return this.strategies.filter((strategy) => {
-      return typeof strategy.isApplicable === 'function' ? strategy.isApplicable(context) : true;
+  getApplicablePromotions(context: BasketContext): IPromotionRule[] {
+    return this.rules.filter((rule) => {
+      return typeof rule.isApplicable === 'function' ? rule.isApplicable(context) : true;
     });
   }
 
   applyApplicablePromotions(total: number, context: BasketContext): number {
     const applicablePromotions = this.getApplicablePromotions(context);
 
-    return applicablePromotions.reduce((sum, strategy) => {
-      return strategy.apply(sum, context);
+    return applicablePromotions.reduce((sum, rule) => {
+      return rule.apply(sum, context);
     }, total);
   }
 }

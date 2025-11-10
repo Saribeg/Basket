@@ -1,9 +1,9 @@
-import type { IPromotionStrategy } from '../IPromotionStrategy.js';
+import type { IPromotionRule } from '../IPromotionRule.js';
 import type { BasketContext } from '../../../models/BasketContext.js';
 import type { Promotion } from '../../../models/Promotion.js';
 import { round } from '../../../utils/money.js';
 
-export class PercentageDiscount implements IPromotionStrategy<'percentage_discount'> {
+export class PercentageDiscount implements IPromotionRule<'percentage_discount'> {
   constructor(public readonly promotion: Promotion<'percentage_discount'>) {}
 
   apply(total: number): number {
