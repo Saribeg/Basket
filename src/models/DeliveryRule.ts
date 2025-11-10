@@ -1,6 +1,7 @@
 export class DeliveryRule {
   constructor(
-    public readonly threshold: number,
+    public readonly minTotal: number,
+    public readonly maxTotal: number,
     public readonly cost: number,
   ) {}
 }
